@@ -58,8 +58,8 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 6. Combining plots in a new theme (15 min)
  
 ### Tuesday morning, 6 June 2023 - Projects in R: Reproducible reports and GitHub
-Time | Duration | Topic | Content | Exercise | Lecturer
----- | -------- | ----- | ------- | -------- | --------	   
+Time | Duration | Topic | Content | Exercise | Lecturer(s)
+---- | -------- | ----- | ------- | -------- | ----------- 
 09:00-10:00 | 60 min | Reproducible reports | Markdown, Quarto, etc. | 7 (15 min) | Christian
 10:00-10:30 | 30 min | Coffee break | - | - | -
 10:30-11:30 | 60 min | Version control and collaboration | Git/GitHub | 8 (15 min) | Alan
@@ -71,8 +71,8 @@ Time | Duration | Topic | Content | Exercise | Lecturer
 9. Create a website using GitHub pages (15 min)
 
 ### Thursday morning, 8 June 2023 - Basic Statistics: Inference about the mean
-Time | Duration | Topic | Content | Exercise | Lecturer
----- | -------- | ----- | ------- | -------- | --------
+Time | Duration | Topic | Content | Exercise | Lecturer(s)
+---- | -------- | ----- | ------- | -------- | -----------
 09:00-09:05 | 5 min | Intro | overview of topics, program | - | Beatriz, Ben
 09:05-09:20 | 15 min | Descriptive statistics | data types, mean, median, variance, SD, IQR, R commands |  | Ben
 09:20-09:35 | 15 min | Associations between continuous vars | pearson correlation| - | Ben
@@ -89,9 +89,9 @@ Time | Duration | Topic | Content | Exercise | Lecturer
 12:05-12:15 | 10 min | Comparing means paired samples, multiple groups | paired-sample t-test, ANOVA | - | Ben
 12:15-12:30 | 15 min | R hands on | inference about means | R-exercise real data | Ben
 
-### Thursday afternoon, 8 June 2023 - Basic Statistics: ?
-Time | Duration | Topic | Content | Exercise | Lecturer
----- | -------- | ----- | ------- | -------- | --------               
+### Thursday afternoon, 8 June 2023 - Basic Statistics: ?             
+Time | Duration | Topic | Content | Exercise | Lecturer(s)
+---- | -------- | ----- | ------- | -------- | -----------
 13:30-13:30 | 5 min | Intro | contents of afternoon | - | Beatriz
 13:30-13:50 | 20 min | Non-Normality | percentiles, outliers, extremes, zero-inflation, qq-plot, N tests | - | Beatriz
 13:50-14:00 | 10 min | Comparing independent samples (non-normal) | Mann–Whitney U, Kruskal Wallis | - | Beatriz
@@ -101,11 +101,19 @@ Time | Duration | Topic | Content | Exercise | Lecturer
 15:15-15:30 | 15 min | Exercise | correlation matrix, pairwise listwise deletion | 2 | Beatriz
 15:30-15:50 | 20 min | Dependent data, clustered, panel data | Intraclass correlation coefficient ICC |  | Beatriz                   
 15:50-16:30 | 10 min | Comparing paired samples (non-normal) | Wilcoxon signed rank |  | Beatriz
-13:30-17:00 | 15 min | Exercise | calculate ICC, Wilcoxon signed rank | 3 | Beatriz       
+13:30-17:00 | 15 min | Exercise | calculate ICC, Wilcoxon signed rank | 3 | Beatriz                                          
+
+#### Exercises
+1. Non-normality, visualize, qqplot, Mann–Whitney U test, Kruskal Wallis (30 min)
+2. Correlation matrix, pairwise listwise deletion
+3. Calculate ICC, Wilcoxon signed rank
+
+#### Notes
+- Add mulitple comparison correction, missing data if there is time
 
 ### Friday morning, 9 June 2023 - Basic Statistics: Inference about proportions and rates
-Time | Duration | Topic | Content | Exercise | Lecturer
----- | -------- | ----- | ------- | -------- | --------
+Time | Duration | Topic | Content | Exercise | Lecturer(s)
+---- | -------- | ----- | ------- | -------- | -----------
 09:00-09:05 | 5 min | Intro | overview of topic, events and counts | - | Ben
 09:05-09:25 | 20 min | Associations between categorical variables | contingency table, Chi2, Fisher's exact test ||
 09:25-09:45 | 20 min | R hands on |  | tabulating data in R, extracting p-values of tests | Ben
@@ -119,9 +127,9 @@ Time | Duration | Topic | Content | Exercise | Lecturer
 11:50-12:10 | 20 min | Survival curve | Kaplan Meier | R-exercise | Ben
 12:10-12:30 | 20 min | Exercise |  | R-exercise | Ben
 
-### Friday morning, 9 June 2023 - Basic Statistics: Continue R project with a guided data analysis
-Time | Duration | Topic | Content | Exercise | Lecturer
----- | -------- | ----- | ------- | -------- | --------                
+### Friday afternoon, 9 June 2023 - Basic Statistics: Continue R project with a guided data analysis
+Time | Duration | Topic | Content | Exercise | Lecturer(s)
+---- | -------- | ----- | ------- | -------- | -----------             
 13:30-13:45 | 15 min | Introduction | Explanations of tasks | - | both
 13:45-14:30 | 45 min | Descriptive part | describe dataset, variables, some plots, descriptive stats | 4 (15 min) | ?
 13:45-14:30 | 45 min | Analytical part | Point,  interval estimation, measure associations, compare two groups, decide  | 4 (15 min) | ?
