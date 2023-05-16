@@ -13,7 +13,7 @@ Course participants will bring their own laptops with installed versions of [R](
 ## Short timetable
 Day | Time | Topic | Lecturer(s)
 --- | ---- | ----- | -----------
-Friday, 2 June 2023 | 09:00-12:30 | Maths and probabilities refresher | Ben Spycher
+Friday, 2 June 2023 | 09:00-12:30 | Optional: Maths and probabilities refresher | Ben Spycher
 Monday, 5 June 2023 | 09:00-12:00 | Projects in R: RStudio and tidyverse | Christian Althaus, Alan Haynes
 Monday, 5 June 2023 | 13:00-17:00 | Projects in R: Data visualization using ggplot2 | Christian Althaus, Judith Bouman, Martin Wohlfender
 Tuesday, 6 June 2023 | 09:00-12:30 | Projects in R: Reproducible reports and GitHub | Christian Althaus, Alan Haynes
