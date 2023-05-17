@@ -143,7 +143,7 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 10:55-11:15 | 20 min | Exercise | tabulating data in R, extracting p-values of tests | 17 | Ben
 11:15-11:30 | 15 min | Coffee break | | |
 11:30-11:50 | 20 min | Inference about event rates | CI, testing (normal approx) for rates and IRR | - | Ben
-11:50-12:10 | 20 min | Survival curve, Kaplan Meier | - | Ben
+11:50-12:10 | 20 min | Survival curve, Kaplan Meier | | - | Ben
 12:10-12:30 | 20 min | Exercise | Survival curve, Kaplan Meier | 18 | Ben
 
 #### Exercises
@@ -159,4 +159,4 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 14:30-15:15 | 45 min | Analytical part | Point,  interval estimation, measure associations, compare two groups, decide  | | Students project
 15:15-15:45 | 30 min | Coffee break | | |
 15:45-16:30 | 45 min | Finish report | Write discussion, finalise, and upload | | Students project
-16:30-17:00 | 30 min | Evaluation / wrap up / outlook other courses | - | Ben, Beatriz
+16:30-17:00 | 30 min | Evaluation, Wrap up, Outlook other courses | | - | Ben, Beatriz
