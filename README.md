@@ -99,7 +99,7 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 10:05-10:25 | 15 min | CLT and normal distribution | SE of mean, central limit theorem, working with the normal distribution | - | Ben
 10:25-10:40 | 15 min | Point and interval estimation for means | CIs for means (using normal approx) | - | Ben
 10:40-11:05 | 15 min | Testing for differences in means | H0, H1, error types, p-values| - | Ben
-11:05-11:30 | 25 min | Exercise | z-transformatiom, calculating probailities using pnorm, manual CI, p calculation | 11 | Ben
+11:05-11:30 | 25 min | Exercise | z-transformatiom, calculating probabilities using pnorm, manual CI, p calculation | 11 | Ben
 11:30-11:45 | 15 min | Coffee break | | |
 11:45-11:55 | 10 min | Inference about mean (small sample, normality) | t-distribution, CIs | - | Ben
 11:55-12:05 | 10 min | Comparing means of independent samples | two-sample t-test, Welch's t-test test | - | Ben
@@ -135,12 +135,12 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 ---- | -------- | ----- | ------- | -------- | -----------
 09:00-09:05 | 5 min | Intro | overview of topic, events and counts | - | Ben
 09:05-09:25 | 20 min | Associations between categorical variables | contingency table, Chi2, Fisher's exact test ||
-09:25-09:45 | 20 min | Exercise |  | tabulating data in R, extracting p-values of tests | 16 | Ben
+09:25-09:45 | 20 min | Exercise | tabulating data in R, extracting p-values of tests | 16 | Ben
 09:45-10:00 | 15 min | Inference about a proportion | binomial distribution, CI (normal approx, exact binom)|  | Ben
 10:00-10:15 | 15 min | Coffee break | | |
 10:15-10:35 | 20 min | Differences in proportions | testing (normal approx), proptest | - | Ben
 10:35-10:55 | 20 min | Ratio measures of association  | RR, OR | - | Ben
-10:55-11:15 | 20 min | Exercise |  | tabulating data in R, extracting p-values of tests | 17 | Ben
+10:55-11:15 | 20 min | Exercise | tabulating data in R, extracting p-values of tests | 17 | Ben
 11:15-11:30 | 15 min | Coffee break | | |
 11:30-11:50 | 20 min | Inference about event rates | CI, testing (normal approx) for rates and IRR | - | Ben
 11:50-12:10 | 20 min | Survival curve, Kaplan Meier | - | Ben
