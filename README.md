@@ -18,9 +18,9 @@ Monday, 5 June 2023 | 09:00-12:00 | Projects in R: RStudio and tidyverse | Chris
 Monday, 5 June 2023 | 13:00-17:00 | Projects in R: Data visualization using ggplot2 | Christian Althaus, Judith Bouman, Martin Wohlfender
 Tuesday, 6 June 2023 | 09:00-12:30 | Projects in R: Reproducible reports and GitHub | Christian Althaus, Alan Haynes
 Thursday, 8 June 2023 | 09:00-12:30 | Basic Statistics: Inference about the mean | Ben Spycher
-Thursday, 8 June 2023 | 13:30-17:00 | Basic Statistics: ? | Beatriz Vidondo
+Thursday, 8 June 2023 | 13:30-17:00 | Basic Statistics: Non-Normal and Dependent/Paired Data | Beatriz Vidondo
 Friday, 9 June 2023 | 09:00-12:30 | Basic Statistics: Inference about proportions and rates | Ben Spycher
-Friday, 9 June 2023 | 13:30-14:30 | Basic Statistics: Continue R project with a guided data analysis | Ben Spycher, Beatriz Vidondo
+Friday, 9 June 2023 | 13:30-17:00 | Basic Statistics: Continue R project with a guided data analysis | Ben Spycher, Beatriz Vidondo
 
 ## Full timetable
 
@@ -28,16 +28,16 @@ Friday, 9 June 2023 | 13:30-14:30 | Basic Statistics: Continue R project with a 
 Time | Duration | Topic | Content | Exercise | Lecturer(s)
 ---- | -------- | ----- | ------- | -------- | -----------
 09:00-09:10 | 10 min | Introduction | Welcome - Overview content | - | Beatriz/Ben
-09:10-09:25 | 15 min | Fundamentals | Sets, union, intersection, functions | Built-in questions | Ben ?
-09:25-09:40 | 15 min | Basic arithmetic| Solve a simple equation, $\Sigma$ / $\Pi$ notation  | White Board  | Ben ?
-09:40-10:05 | 15 min | Maximizing a function | intuitive explanation of derivatives  | WB | Ben ?
-10:05-10:20 | 15 min | Area under a function | intuitive explanation of integration  | WB  | Ben ?
-10:20-10:40 | 20 min | Exponentiation / logarithms | rules, exp/log functions | Built-in Qs | Ben ?
+09:10-09:25 | 15 min | Fundamentals | Sets, union, intersection, functions | Built-in questions | Ben 
+09:25-09:40 | 15 min | Basic arithmetic| Solve a simple equation, $\Sigma$ / $\Pi$ notation  | White Board  | Ben 
+09:40-10:05 | 15 min | Maximizing a function | intuitive explanation of derivatives  | WB | Ben 
+10:05-10:20 | 15 min | Area under a function | intuitive explanation of integration  | WB  | Ben 
+10:20-10:40 | 20 min | Exponentiation / logarithms | rules, exp/log functions | Built-in Qs | Ben 
 10:40-10:00 | 20 min | Coffee break |   |  |
-11:00-11:20 | 20 min | Probability | Basic rules, conditional probability, independence |  | Ben ?
-11:20-11:40 | 20 min | Random variables | discrete and continuous distributions |  | Ben ?
-11:40-12:00 | 20 min | Characterizing distributions | expectation, variance, covariance, transformations|  | Ben ?
-12:00-12:30 | 30 min | Specific distributions | Binomial, normal, Poisson | z-transformation | Ben ?
+11:00-11:20 | 20 min | Probability | Basic rules, conditional probability, independence |  | Ben 
+11:20-11:40 | 20 min | Random variables | discrete and continuous distributions |  | Ben 
+11:40-12:00 | 20 min | Characterizing distributions | expectation, variance, covariance, transformations|  | Ben 
+12:00-12:30 | 30 min | Specific distributions | Binomial, normal, Poisson | z-transformation | Ben 
 
 ### Monday morning, 5 June 2023 - Projects in R: RStudio and tidyverse
 Time | Duration | Topic | Content | Exercise | Lecturer(s)
@@ -93,62 +93,74 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 09:00-09:05 | 5 min | Intro | overview of topics, program | - | Beatriz, Ben
 09:05-09:20 | 15 min | Descriptive statistics | data types, mean, median, variance, SD, IQR, R commands |  | Ben
 09:20-09:35 | 15 min | Associations between continuous vars | pearson correlation| - | Ben
-09:35-10:00 | 25 min | R hands on | descriptive stats, box plot, scatter plot, correlation | R-exercise | Ben
+09:35-10:00 | 25 min | Exercise | descriptive stats, box plot, scatter plot, correlation | 10 | Ben
 10:00-10:15 | 15 min | Coffee break | | |
 10:15-10:20 | 5 min | Intro inferential statistics | Population, samples, statistics | - | Ben
 10:05-10:25 | 15 min | CLT and normal distribution | SE of mean, central limit theorem, working with the normal distribution | - | Ben
 10:25-10:40 | 15 min | Point and interval estimation for means | CIs for means (using normal approx) | - | Ben
 10:40-11:05 | 15 min | Testing for differences in means | H0, H1, error types, p-values| - | Ben
-11:05-11:30 | 25 min | R hands on | z-transformatiom, calculating probailities using pnorm, manual CI, p calculation | R-exercise | Ben
+11:05-11:30 | 25 min | Exercise | z-transformatiom, calculating probailities using pnorm, manual CI, p calculation | 11 | Ben
 11:30-11:45 | 15 min | Coffee break | | |
 11:45-11:55 | 10 min | Inference about mean (small sample, normality) | t-distribution, CIs | - | Ben
 11:55-12:05 | 10 min | Comparing means of independent samples | two-sample t-test, Welch's t-test test | - | Ben
 12:05-12:15 | 10 min | Comparing means paired samples, multiple groups | paired-sample t-test, ANOVA | - | Ben
-12:15-12:30 | 15 min | R hands on | inference about means | R-exercise real data | Ben
+12:15-12:30 | 15 min | Exercise | Inference about means | 12 | Ben
 
-### Thursday afternoon, 8 June 2023 - Basic Statistics: ?             
+#### Exercises
+10.
+11.
+12.
+
+### Thursday afternoon, 8 June 2023 - Basic Statistics: Non-Normal and Dependent/Paired Data             
 Time | Duration | Topic | Content | Exercise | Lecturer(s)
 ---- | -------- | ----- | ------- | -------- | -----------
 13:30-13:30 | 5 min | Intro | contents of afternoon | - | Beatriz
-13:30-13:50 | 20 min | Non-Normality | percentiles, outliers, extremes, zero-inflation, qq-plot, N tests | - | Beatriz
+13:30-13:50 | 20 min | Non-Normality | Examples, QQ-plot, Normality tests | - | Beatriz
 13:50-14:00 | 10 min | Comparing independent samples (non-normal) | Mann–Whitney U, Kruskal Wallis | - | Beatriz
 14:00-14:30 | 30 min | Exercise | Mann–Whitney U, Kruskal Wallis test, multiple comp corrections | 1 | Beatriz
 14:30-15:00 | 30 min | Coffee break | - | - | -
 15:00-15:15 | 15 min | Associations between continuous vars | Spearman correlation | - | Beatriz
 15:15-15:30 | 15 min | Exercise | correlation matrix, pairwise listwise deletion | 2 | Beatriz
-15:30-15:50 | 20 min | Dependent data, clustered, panel data | Intraclass correlation coefficient ICC |  | Beatriz                   
+15:30-15:50 | 20 min | Dependent/paired, clustered, panel data | Intraclass correlation coefficient ICC |  | Beatriz                   
 15:50-16:30 | 10 min | Comparing paired samples (non-normal) | Wilcoxon signed rank |  | Beatriz
 13:30-17:00 | 15 min | Exercise | calculate ICC, Wilcoxon signed rank | 3 | Beatriz                                          
 
 #### Exercises
-1. Non-normality, visualize, qqplot, Mann–Whitney U test, Kruskal Wallis (30 min)
-2. Correlation matrix, pairwise listwise deletion
+1. Non-normality, visualize, QQplots, Normality tests, Mann–Whitney U test, Kruskal Wallis
+2. Correlation matrix, pairwise listwise missing values deletion
 3. Calculate ICC, Wilcoxon signed rank
 
 #### Notes
-- Add mulitple comparison correction, missing data if there is time
+---
 
 ### Friday morning, 9 June 2023 - Basic Statistics: Inference about proportions and rates
 Time | Duration | Topic | Content | Exercise | Lecturer(s)
 ---- | -------- | ----- | ------- | -------- | -----------
 09:00-09:05 | 5 min | Intro | overview of topic, events and counts | - | Ben
 09:05-09:25 | 20 min | Associations between categorical variables | contingency table, Chi2, Fisher's exact test ||
-09:25-09:45 | 20 min | R hands on |  | tabulating data in R, extracting p-values of tests | Ben
+09:25-09:45 | 20 min | Exercise |  | tabulating data in R, extracting p-values of tests | 1 | Ben
 09:45-10:00 | 15 min | Inference about a proportion | binomial distribution, CI (normal approx, exact binom)|  | Ben
 10:00-10:15 | 15 min | Coffee break | | |
 10:15-10:35 | 20 min | Differences in proportions | testing (normal approx), proptest | - | Ben
-10:35-10:55 | 20 min | Ratio measures of association  | RR, OR | R-exercise | Ben
-10:55-11:15 | 20 min | R hands on |  | tabulating data in R, extracting p-values of tests | Ben
+10:35-10:55 | 20 min | Ratio measures of association  | RR, OR | - | Ben
+10:55-11:15 | 20 min | Exercise |  | tabulating data in R, extracting p-values of tests | 2 | Ben
 11:15-11:30 | 15 min | Coffee break | | |
 11:30-11:50 | 20 min | Inference about event rates | CI, testing (normal approx) for rates and IRR | - | Ben
-11:50-12:10 | 20 min | Survival curve | Kaplan Meier | R-exercise | Ben
-12:10-12:30 | 20 min | Exercise |  | R-exercise | Ben
+11:50-12:10 | 20 min | Survival curve, Kaplan Meier | - | Ben
+12:10-12:30 | 20 min | Exercise | Survival curve, Kaplan Meier | 3 | Ben
 
-### Friday afternoon, 9 June 2023 - Basic Statistics: Continue R project with a guided data analysis
+#### Exercises
+1.
+2.
+3.
+4.
+
+### Friday afternoon, 9 June 2023 - Basic Statistics: Student's own work with R with guided data analysis
 Time | Duration | Topic | Content | Exercise | Lecturer(s)
 ---- | -------- | ----- | ------- | -------- | -----------             
-13:30-13:45 | 15 min | Introduction | Explanations of tasks | - | both
-13:45-14:30 | 45 min | Descriptive part | describe dataset, variables, some plots, descriptive stats | 4 (15 min) | ?
-13:45-14:30 | 45 min | Analytical part | Point,  interval estimation, measure associations, compare two groups, decide  | 4 (15 min) | ?
-13:45-14:30 | 45 min | Finish report | Write discussion, finalise, and upload | 4 (15 min) | ?
-13:45-14:30 | 30 min | Evaluation / wrap up / outlook other courses | ||
+13:30-13:45 | 15 min | Introduction | Explanations of tasks | - | Ben, Beatriz
+13:45-14:30 | 45 min | Descriptive part | describe dataset, variables, some plots, descriptive stats | | Students project
+14:30-15:15 | 45 min | Analytical part | Point,  interval estimation, measure associations, compare two groups, decide  | | Students project
+15:15-15:45 | 30 min | Coffee break | | |
+15:45-16:30 | 45 min | Finish report | Write discussion, finalise, and upload | | Students project
+16:30-17:00 | 30 min | Evaluation / wrap up / outlook other courses | - | Ben, Beatriz
