@@ -18,7 +18,7 @@ Monday, 5 June 2023 | 09:00-12:00 | Projects in R: RStudio and tidyverse | Chris
 Monday, 5 June 2023 | 13:00-17:00 | Projects in R: Data visualization using ggplot2 | Christian Althaus, Judith Bouman, Martin Wohlfender
 Tuesday, 6 June 2023 | 09:00-12:30 | Projects in R: Reproducible reports and GitHub | Christian Althaus, Alan Haynes
 Thursday, 8 June 2023 | 09:00-12:30 | Basic Statistics: Inference about the mean | Ben Spycher
-Thursday, 8 June 2023 | 13:30-17:00 | Basic Statistics: Non-Normal and Dependent/Paired Data | Beatriz Vidondo
+Thursday, 8 June 2023 | 13:30-17:00 | Basic Statistics: Non-normal and dependent/paired data | Beatriz Vidondo
 Friday, 9 June 2023 | 09:00-12:30 | Basic Statistics: Inference about proportions and rates | Ben Spycher
 Friday, 9 June 2023 | 13:30-17:00 | Basic Statistics: Continue R project with a guided data analysis | Ben Spycher, Beatriz Vidondo
 
@@ -111,49 +111,45 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 11.
 12.
 
-### Thursday afternoon, 8 June 2023 - Basic Statistics: Non-Normal and Dependent/Paired Data             
+### Thursday afternoon, 8 June 2023 - Basic Statistics: Non-normal and dependent/paired data            
 Time | Duration | Topic | Content | Exercise | Lecturer(s)
 ---- | -------- | ----- | ------- | -------- | -----------
 13:30-13:30 | 5 min | Intro | contents of afternoon | - | Beatriz
 13:30-13:50 | 20 min | Non-Normality | Examples, QQ-plot, Normality tests | - | Beatriz
 13:50-14:00 | 10 min | Comparing independent samples (non-normal) | Mann–Whitney U, Kruskal Wallis | - | Beatriz
-14:00-14:30 | 30 min | Exercise | Mann–Whitney U, Kruskal Wallis test, multiple comp corrections | 1 | Beatriz
+14:00-14:30 | 30 min | Exercise | Mann–Whitney U, Kruskal Wallis test, multiple comp corrections | 13 | Beatriz
 14:30-15:00 | 30 min | Coffee break | - | - | -
 15:00-15:15 | 15 min | Associations between continuous vars | Spearman correlation | - | Beatriz
-15:15-15:30 | 15 min | Exercise | correlation matrix, pairwise listwise deletion | 2 | Beatriz
+15:15-15:30 | 15 min | Exercise | correlation matrix, pairwise listwise deletion | 14 | Beatriz
 15:30-15:50 | 20 min | Dependent/paired, clustered, panel data | Intraclass correlation coefficient ICC |  | Beatriz                   
 15:50-16:30 | 10 min | Comparing paired samples (non-normal) | Wilcoxon signed rank |  | Beatriz
-13:30-17:00 | 15 min | Exercise | calculate ICC, Wilcoxon signed rank | 3 | Beatriz                                          
+13:30-17:00 | 15 min | Exercise | calculate ICC, Wilcoxon signed rank | 15 | Beatriz                                          
 
 #### Exercises
-1. Non-normality, visualize, QQplots, Normality tests, Mann–Whitney U test, Kruskal Wallis
-2. Correlation matrix, pairwise listwise missing values deletion
-3. Calculate ICC, Wilcoxon signed rank
-
-#### Notes
----
+13. Non-normality, visualize, QQplots, Normality tests, Mann–Whitney U test, Kruskal Wallis
+14. Correlation matrix, pairwise listwise missing values deletion
+15. Calculate ICC, Wilcoxon signed rank
 
 ### Friday morning, 9 June 2023 - Basic Statistics: Inference about proportions and rates
 Time | Duration | Topic | Content | Exercise | Lecturer(s)
 ---- | -------- | ----- | ------- | -------- | -----------
 09:00-09:05 | 5 min | Intro | overview of topic, events and counts | - | Ben
 09:05-09:25 | 20 min | Associations between categorical variables | contingency table, Chi2, Fisher's exact test ||
-09:25-09:45 | 20 min | Exercise |  | tabulating data in R, extracting p-values of tests | 1 | Ben
+09:25-09:45 | 20 min | Exercise |  | tabulating data in R, extracting p-values of tests | 16 | Ben
 09:45-10:00 | 15 min | Inference about a proportion | binomial distribution, CI (normal approx, exact binom)|  | Ben
 10:00-10:15 | 15 min | Coffee break | | |
 10:15-10:35 | 20 min | Differences in proportions | testing (normal approx), proptest | - | Ben
 10:35-10:55 | 20 min | Ratio measures of association  | RR, OR | - | Ben
-10:55-11:15 | 20 min | Exercise |  | tabulating data in R, extracting p-values of tests | 2 | Ben
+10:55-11:15 | 20 min | Exercise |  | tabulating data in R, extracting p-values of tests | 17 | Ben
 11:15-11:30 | 15 min | Coffee break | | |
 11:30-11:50 | 20 min | Inference about event rates | CI, testing (normal approx) for rates and IRR | - | Ben
 11:50-12:10 | 20 min | Survival curve, Kaplan Meier | - | Ben
-12:10-12:30 | 20 min | Exercise | Survival curve, Kaplan Meier | 3 | Ben
+12:10-12:30 | 20 min | Exercise | Survival curve, Kaplan Meier | 18 | Ben
 
 #### Exercises
-1.
-2.
-3.
-4.
+16.
+17.
+18.
 
 ### Friday afternoon, 9 June 2023 - Basic Statistics: Student's own work with R with guided data analysis
 Time | Duration | Topic | Content | Exercise | Lecturer(s)
