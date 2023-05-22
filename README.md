@@ -84,7 +84,7 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 
 #### Exercises
 7. Reproducible report using Quarto (15 min)
-8. Create a GitHub repository and push report (15 min)
+8. Create a GitHub repository and push all earlier files (15 min)
 9. Create a website using GitHub pages (15 min)
 
 ### Thursday morning, 8 June 2023 - Basic Statistics: Inference about the mean
