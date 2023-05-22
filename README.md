@@ -45,7 +45,7 @@ Time | Duration | Topic | Content | Exercise | Lecturer(s)
 09:00-09:10 | 10 min | General introduction | Lecturers and course program | - | All
 09:10-09:40 | 30 min | Introduction to RStudio | Hands-on, functions, characters | - | Christian
 09:40-09:50 | 10 min | Project organization | Files, names, etc. | - | Christian
-09:50-10:00 | 10 min | Creating an R project | Template | 1 (10 min) | Alan
+09:50-10:00 | 10 min | Creating an R project | Template | 1 (10 min) | Christian
 10:00-10:15 | 15 min | Base R and tidyverse | Concepts | - | Alan
 10:15-10:30 | 15 min | Data | Import, CSV, Excel, REDCap, packages | 2 (10 min) | Alan
 10:30-10:50 | 20 min | Coffee break | - | - | -
