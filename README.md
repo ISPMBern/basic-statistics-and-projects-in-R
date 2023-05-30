@@ -12,9 +12,11 @@ Course participants will bring their own laptops with installed versions of [R](
 
 ## Slides
 
+## Exercises
+
 ## Data sets
 
-## Short timetable
+## Timetable
 Day | Time | Topic | Lecturer(s)
 --- | ---- | ----- | -----------
 Friday, 2 June 2023 | 09:00-12:30 | Optional: Maths and probabilities refresher | Ben Spycher
