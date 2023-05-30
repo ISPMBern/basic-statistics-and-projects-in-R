@@ -23,18 +23,19 @@ The following preparation steps are optional. You will also have time during the
 4. Generate a personal access token (PAT) and store your PAT as described [here](https://happygitwithr.com/https-pat.html#get-a-pat).
 
 ## Slides
+You can find the course slides [here](products/slides).
 
 ## Exercises
 
 ## Data sets
 
-## Timetable
+## Timetable and slides
 Day | Time | Topic | Lecturer(s)
 --- | ---- | ----- | -----------
 Friday, 2 June 2023 | 09:00-12:30 | Optional: Maths and probabilities refresher | Ben Spycher
-Monday, 5 June 2023 | 09:00-12:00 | Projects in R: RStudio and tidyverse | Christian Althaus, Alan Haynes
-Monday, 5 June 2023 | 13:00-17:00 | Projects in R: Data visualization using ggplot2 | Christian Althaus, Judith Bouman, Martin Wohlfender
-Tuesday, 6 June 2023 | 09:00-12:30 | Projects in R: Reproducible reports and GitHub | Christian Althaus, Alan Haynes
+Monday, 5 June 2023 | 09:00-12:00 | [Projects in R: RStudio and tidyverse](products/slides/2023_course_slides_1_wrangling.qmd) | Christian Althaus, Alan Haynes
+Monday, 5 June 2023 | 13:00-17:00 | [Projects in R: Data visualization using ggplot2](products/slides/2023_course_slides_2_dataviz.qmd) | Christian Althaus, Judith Bouman, Martin Wohlfender
+Tuesday, 6 June 2023 | 09:00-12:30 | [Projects in R: Reproducible reports and GitHub](products/slides/2023_course_slides_3_reproducibility.qmd) | Christian Althaus, Alan Haynes
 Thursday, 8 June 2023 | 09:00-12:30 | Basic Statistics: Inference about the mean | Ben Spycher
 Thursday, 8 June 2023 | 13:30-17:00 | Basic Statistics: Non-normal and dependent/paired data | Beatriz Vidondo
 Friday, 9 June 2023 | 09:00-12:30 | Basic Statistics: Inference about proportions and rates | Ben Spycher
