@@ -47,3 +47,8 @@ File | Description | Source
 ---- | ----------- | ------
 [COVID19Cases_geoRegion.csv](data/raw/COVID19Cases_geoRegion.csv) | Laboratory-confirmed SARS-CoV-2 cases by region | [FOPH](https://www.covid19.admin.ch)
 [COVID19Cases_geoRegion_AKL10_w.csv](data/raw/COVID19Cases_geoRegion_AKL10_w.csv) | Laboratory-confirmed SARS-CoV-2 cases by region and age group | [FOPH](https://www.covid19.admin.ch)
+
+## Further online material
+- [Hands-On Programming with R](https://rstudio-education.github.io/hopr)
+- [R for Data Science](https://r4ds.had.co.nz)
+- [Fundamentals of Data Visualization](https://clauswilke.com/dataviz)
