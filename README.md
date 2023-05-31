@@ -22,7 +22,7 @@ The following preparation steps are optional. You will also have time during the
 `usethis::use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")`
 4. Generate a personal access token (PAT) and store your PAT as described [here](https://happygitwithr.com/https-pat.html#get-a-pat).
 
-## Timetable and slides
+## Timetable
 Day | Time | Topic | Slides | Lecturer(s)
 --- | ---- | ----- | ------ | -----------
 Friday, 2 June 2023 | 09:00-12:30 | Optional: Maths and probabilities refresher | | Ben Spycher
