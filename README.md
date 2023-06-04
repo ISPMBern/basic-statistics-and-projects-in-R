@@ -1,5 +1,12 @@
-# Basic statistics and projects in R
+# Basic Statistics and Projects in R
 This repository provides information and material for the [Basic Statistics and Projects in R](https://zuw.me/kurse/dt.php?kid=4474) course of the [Public Health Sciences Course Program](https://www.medizin.unibe.ch/studies/study_programs/phs_course_program) at the [University of Bern](https://www.unibe.ch).
+
+1. [Preparation](#preparation)
+2. [Timetable](#timetable)
+3. [Slides](#slides)
+4. [Exercises](#exercises)
+5. [Data sets](#data-sets)
+6. [Further online material](#further-online-material)
 
 ## Preparation
 ### Mandatory steps
@@ -17,18 +24,30 @@ Course participants will bring their own laptops with installed versions of [R](
 The following preparation steps are optional. You will also have time during the course to complete these steps.
 
 1. Make sure RStudio knows about Git by following the corresponding section [here](https://sites.northwestern.edu/researchcomputing/resources/using-git-and-github-with-r-rstudio).
-2. Install the [usethis](https://usethis.r-lib.org) package for R using the following command: `install.packages("usethis")`
+2. Install the `usethis` package for R using the following command: `install.packages("usethis")`
 3. Set up Git using the following command:
 `usethis::use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")`
 4. Generate a personal access token (PAT) and store your PAT as described [here](https://happygitwithr.com/https-pat.html#get-a-pat).
 
+### Required packages
+To work on the exercises, course participants have to install the following packages:
+
+- `usethis` - Workflow package
+- `gitcreds` - Queries Git credentials from R
+- `here` - Easy file referencing
+- `tidyverse` - A set of packages
+- `medicaldata` - Medical data sets
+- `cowplot` - Features to create publication-quality figures
+
+Simply type `install.packages("packagename")`, but RStudio will ask you about it as well if you want to load a package that you haven't installed yet.
+
 ## Timetable
 Day | Time | Topic | Slides | Lecturer(s)
 --- | ---- | ----- | ------ | -----------
-Friday, 2 June 2023 | 09:00-12:30 | Optional: Maths and probabilities refresher | | Ben Spycher
-Monday, 5 June 2023 | 09:00-12:00 | Projects in R: RStudio and tidyverse | [HTML](products/slides/2023_course_slides_1_wrangling.html) | Christian Althaus, Alan Haynes
-Monday, 5 June 2023 | 13:00-17:00 | Projects in R: Data visualization using ggplot2 | [HTML](products/slides/2023_course_slides_2_dataviz.html) | Christian Althaus, Judith Bouman, Martin Wohlfender
-Tuesday, 6 June 2023 | 09:00-12:30 | Projects in R: Reproducible reports and GitHub | [HTML](products/slides/2023_course_slides_3_reproducibility.html) | Christian Althaus, Alan Haynes
+Friday, 2 June 2023 | 09:00-12:30 | Optional: Maths and probabilities refresher | [HTML](products/slides/2023_course_slides_refresher.html) | Ben Spycher
+Monday, 5 June 2023 | 09:00-12:00 | Projects in R: Introduction to R, the tidyverse, and data wrangling | [HTML](products/slides/2023_course_slides_01_wrangling.html) | Christian Althaus, Alan Haynes
+Monday, 5 June 2023 | 13:00-17:00 | Projects in R: Data visualization with the tidyverse | [HTML](products/slides/2023_course_slides_02_dataviz.html) | Christian Althaus, Judith Bouman, Martin Wohlfender
+Tuesday, 6 June 2023 | 09:00-12:30 | Projects in R: Reproducibility and GitHub | [HTML](products/slides/2023_course_slides_03_reproducibility.html) | Christian Althaus, Alan Haynes
 Thursday, 8 June 2023 | 09:00-12:30 | Basic Statistics: Inference about the mean | | Ben Spycher
 Thursday, 8 June 2023 | 13:30-17:00 | Basic Statistics: Non-normal and dependent/paired data | | Beatriz Vidondo
 Friday, 9 June 2023 | 09:00-12:30 | Basic Statistics: Inference about proportions and rates | | Ben Spycher
@@ -38,7 +57,7 @@ Friday, 9 June 2023 | 13:30-17:00 | Basic Statistics: Continue R project with a 
 You can find all slides [here](products/slides).
 
 ## Exercises
-You can find the exercises [here](products/exercises).
+You can find material for the exercises [here](products/exercises).
 
 ## Data sets
 We will use the following data sets during the course:
@@ -50,7 +69,6 @@ File | Description | Source | exercise
 [covid_cantons_2020_06.csv](data/processed/covid_cantons_2020_06.csv) | Laboratory-confirmed SARS-CoV-2 cases for selected cantons and time period | [FOPH](https://www.covid19.admin.ch) |
 [ebola.csv](data/raw/ebola.csv) | World-wide Ebola cases from 2014-2016  | [data.world](https://data.world/brianray/ebola-cases) | 4
 [insurance_with_date.csv](data/raw/insurance_with_date.csv) | Data on costs of medical procedures | [kaggle](https://www.kaggle.com/datasets/mirichoi0218/insurance?resource=download) | 5
-
 
 ## Further online material
 We recommend the following online tutorials and books on R and RStudio with specific applications to epidemiology, public health, and data science:
