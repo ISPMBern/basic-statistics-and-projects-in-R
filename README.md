@@ -53,6 +53,11 @@ File | Description | Source | exercise
 
 
 ## Further online material
+We recommend the following online tutorials and books on R and RStudio with specific applications to epidemiology, public health, and data science:
+
+- [The R Manuals](https://rstudio.github.io/r-manuals/)
 - [Hands-On Programming with R](https://rstudio-education.github.io/hopr)
+- [The Epidemiologist R Handbook](https://epirhandbook.com/en/)
+- [Introduction to R for Public Health Researchers](https://jhudatascience.org/intro_to_r/index.html)
 - [R for Data Science](https://r4ds.had.co.nz)
 - [Fundamentals of Data Visualization](https://clauswilke.com/dataviz)
