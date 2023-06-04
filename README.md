@@ -95,4 +95,4 @@ We recommend the following online tutorials and books on R and RStudio with spec
 
 ## Contact
 
-If you have any questions regarding the course, please get in touch with us at <phs-info.ispm@unibe.ch> or [christian.althaus@unibe.ch](mailto:phs-info.ispm@unibe.ch).
+If you have any questions regarding the course, please get in touch with us at <phs-info.ispm@unibe.ch> or <christian.althaus@unibe.ch>.
