@@ -86,4 +86,4 @@ We recommend the following online tutorials and books on R and RStudio with spec
 - [Fundamentals of Data Visualization](https://clauswilke.com/dataviz)
 
 ## Contact
-If you have any questions regarding the course, please get in touch with us at phs-info.ispm@unibe.ch or christian.althaus@unibe.ch.
+If you have any questions regarding the course, please get in touch with us at [phs-info.ispm@unibe.ch](phs-info.ispm@unibe.ch) or [christian.althaus@unibe.ch](phs-info.ispm@unibe.ch).
