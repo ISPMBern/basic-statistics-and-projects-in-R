@@ -46,6 +46,7 @@ To work on the exercises, course participants have to install the following pack
 Simply type `install.packages("packagename")`, but RStudio will ask you about it as well if you want to load a package that you haven't installed yet.
 
 ## Timetable
+
 Day | Time | Topic | Slides | Lecturer(s)
 --- | ---- | ----- | ------ | -----------
 Friday, 2 June 2023 | 09:00-12:30 | Optional: Maths and probabilities refresher | [HTML](https://ispmbern.github.io/basic-statistics-and-projects-in-R/products/slides/2023_course_slides_refresher.html) | Ben Spycher
