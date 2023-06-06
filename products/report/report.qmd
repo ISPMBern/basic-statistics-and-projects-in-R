@@ -1,0 +1,69 @@
+---
+title: "Second wave of COVID-19 in Switzerland"
+author: "Christian L. Althaus"
+date: "`r date()`"
+format:
+  html:
+    toc: true
+    code-fold: show
+    code-tools: true
+    df-print: paged
+    embed-resources: true
+  pdf:
+    toc: true
+  docx:
+    toc: true
+---
+
+```{r}
+#| output: false
+# Load libraries
+library(here)
+library(tidyverse)
+library(lubridate)
+library(unibeCols)
+```
+
+## Introduction
+
+The aim of this exercises is to visualize the increase of laboratory-confirmed cases of COVID-19 in Switzerland during autumn 2020.
+
+## Data
+
+We read and process the data of laboratory-confirmed cases of COVID-19 in Switzerland as reported by the [Federal Office of Public Health](https://www.covid19.admin.ch).
+
+```{r}
+#| output: false
+# Read data
+cases <- read_csv(here("data/raw/COVID19Cases_geoRegion.csv"))
+```
+
+```{r}
+# Process data
+region <- "CH"
+window_start <- ymd("2020-09-01")
+window_end <- ymd("2020-11-30")
+cases <- cases |>
+  filter(geoRegion == region & datum >= window_start & datum <= window_end) |>
+  select(datum, entries)
+cases
+```
+
+## Results
+
+@fig-cases shows the number of laboratory-confirmed cases of COVID-19 in Switzerland from `r window_start` to `r window_end`.
+
+```{r}
+#| label: fig-cases
+#| fig-cap: "Laboratory-confirmed cases of COVID-19 in Switzerland in 2020."
+#| fig-width: 8
+#| fig-height: 4
+ggplot(cases, aes(x = datum, y = entries)) +
+  geom_bar(stat = "identity", fill = unibeSaphireS()[1]) +
+  labs(x = "", y = "Laboratory-confirmed cases", ) +
+  theme_minimal()
+```
+
+# Conclusions
+
+The number of laboratory-confirmed cases of COVID-19 in Switzerland rapidly increased during October 2020 and subsequently declined.
