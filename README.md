@@ -1,6 +1,9 @@
 # Basic Statistics and Projects in R
 
-This repository provides information and material for the [Basic Statistics and Projects in R](https://zuw.me/kurse/dt.php?kid=4474) ([GitHub repository](https://github.com/ISPMBern/basic-statistics-and-projects-in-R) and [GitHub Page](https://ispmbern.github.io/basic-statistics-and-projects-in-R)) course of the [Public Health Sciences Course Program](https://www.medizin.unibe.ch/studies/study_programs/phs_course_program) at the [University of Bern](https://www.unibe.ch).
+<img align="right" width="38%" src="phs-logo.jpg"> Information and course material for the [Basic Statistics and Projects in R](https://zuw.me/kurse/dt.php?kid=4474) course of the [Public Health Sciences Course Program](https://www.medizin.unibe.ch/studies/study_programs/phs_course_program) at the [University of Bern](https://www.unibe.ch)
+
+- Course [GitHub repository](https://github.com/ISPMBern/basic-statistics-and-projects-in-R)
+- Course [GitHub Page](https://ispmbern.github.io/basic-statistics-and-projects-in-R)
 
 ## Table of contents
 
