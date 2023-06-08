@@ -60,8 +60,8 @@ Friday, 2 June 2023 | 09:00-12:30 | Optional: Maths and probabilities refresher 
 Monday, 5 June 2023 | 09:00-12:00 | Projects in R: Introduction to R, the tidyverse, and data wrangling | [HTML](https://ispmbern.github.io/basic-statistics-and-projects-in-R/products/slides/2023_course_slides_01_wrangling.html) | Christian Althaus, Alan Haynes
 Monday, 5 June 2023 | 13:00-17:00 | Projects in R: Data visualization with the tidyverse | [HTML](https://ispmbern.github.io/basic-statistics-and-projects-in-R/products/slides/2023_course_slides_02_dataviz.html) | Christian Althaus, Judith Bouman, Martin Wohlfender
 Tuesday, 6 June 2023 | 09:00-12:30 | Projects in R: Reproducibility and GitHub | [HTML](https://ispmbern.github.io/basic-statistics-and-projects-in-R/products/slides/2023_course_slides_03_reproducibility.html) | Christian Althaus, Alan 
-Thursday, 8 June 2023 | 09:00-12:30 | Basic Statistics: Inference about the mean | | Ben Spycher
-Thursday, 8 June 2023 | 13:30-17:00 | Basic Statistics: Non-normal and dependent/paired data |  [HTML](https://ispmbern.github.io/basic-statistics-and-projects-in-R/products/slides/PPT_PHS_NonNormality.pdf) | Beatriz Vidondo
+Thursday, 8 June 2023 | 09:00-12:30 | Basic Statistics: Inference about the mean | [HTML](https://ispmbern.github.io/basic-statistics-and-projects-in-R/products/slides/2023_course_slides_04_means.html) | Ben Spycher
+Thursday, 8 June 2023 | 13:30-17:00 | Basic Statistics: Non-normal data, correlation and dependent/paired data |  [HTML](https://ispmbern.github.io/basic-statistics-and-projects-in-R/products/slides/PPT_PHS_NonNormality.pdf) | Beatriz Vidondo
 Friday, 9 June 2023 | 09:00-12:30 | Basic Statistics: Inference about proportions and rates | | Ben Spycher
 Friday, 9 June 2023 | 13:30-17:00 | Basic Statistics: Continue R project with a guided data analysis | | Ben Spycher, Beatriz Vidondo
 
