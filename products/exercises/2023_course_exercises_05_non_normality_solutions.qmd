@@ -1,0 +1,329 @@
+---
+title: "Basic Statistics Exercises Part 2"
+author: "Guy Schnidrig, Beatriz Vidondo"
+toc: true
+toc-depth: 4
+toc-location: left
+format: 
+  html:
+    self-contained: true
+    code-link: true
+    code-fold: true
+    code-summary: "Answer"
+number-sections: true
+editor: source
+theme:
+  light: flatly
+  dark: darkly
+---
+
+These are the exercises for [Basic Statistics and Projects in R](https://zuw.me/kurse/dt.php?kid=4474) course of the [Public Health Sciences Course Program](https://www.medizin.unibe.ch/studies/study_programs/phs_course_program) at the [University of Bern](https://www.unibe.ch/). 
+
+Ask [questions](https://app.sli.do/event/xpuz3U7hL5xXPjtRVmwfw7). 
+
+```{r setup, include=FALSE, echo=F, warning=FALSE, message=FALSE}
+# Set language
+Sys.setenv(LANG = "en")
+
+# Clear memory
+rm(list=ls())
+gc()
+
+# Load libraries
+library_names <- c("tidyverse", "knitr", "downlit", "ggcorrplot","medicaldata", "rstatix", "datarium","PairedData")
+
+lapply(library_names, function(x) {
+  if (!require(x, character.only = TRUE)) {
+    install.packages(x)
+    library(x, character.only = TRUE)
+  }
+})
+
+# Set non-scientific notation
+options(scipen = 999)
+```
+
+## Non-Normality
+
+Load the **cytomegalovirus** data from the package medicaldata^[2](https://cran.r-project.org/web/packages/medicaldata/index.html)^.\
+Here you can find the full description^[3](https://www.causeweb.org/tshs/datasets/Cytomegalovirus%20Dataset%20Introduction.pdf)^ of the study, as well as the code book^[4](https://www.causeweb.org/tshs/datasets/Cytomegalovirus%20Data%20Dictionary.pdf)^.
+
+This data set contains 64 consecutive patients who underwent T-cell replete, matched sibling donor reduced-intensity conditioning allogeneic hematopoietic stem cell transplant. The primary risk factor of interest was the number of activating killer immunoglobulin-like receptors (aKIRs: 1-4 vs. 5-6). The primary outcome is **presence** of and **time to cytomegalovirus reactivation**.
+
+```{r, warning=FALSE}
+#| code-fold: false
+cytomegalovirus <- medicaldata::cytomegalovirus
+```
+
+Display the first 5 rows of the data set.
+
+```{r, warning=FALSE}
+head(cytomegalovirus,5) %>%
+  kable()
+```
+
+Plot a histogram of the time cytomegalovirus reactivation. Use `ggplot2` and set 20 bins (or use `geom_density`). What kind of distribution do you observe?
+
+```{r}
+cytomegalovirus %>%
+  ggplot(aes(time.to.cmv)) +
+  geom_histogram(bins = 20,
+                 color = "black",
+                 fill = "steelblue") +
+  theme_bw()
+```
+
+Generate a quantile-quantile (QQ) plot using `geom_qq` and `geom_qq_line` to assess its alignment with the theoretical line.
+
+```{r}
+cytomegalovirus %>%
+  ggplot(aes(sample = time.to.cmv)) + 
+  geom_qq_line(distribution = stats::qnorm) +
+  geom_qq(color = "steelblue", distribution = stats::qnorm) + 
+  xlab("Theoretical Quantiles") +
+  ylab("Sample Quantiles") +
+  theme_bw()
+```
+
+We can also test if the distribution is non normal. Use `shapiro_test` to test the null hypothesis that the data came from a normal distribution. Can you reject the null hypothesis?
+
+```{r}
+cytomegalovirus %>%
+  shapiro_test(time.to.cmv) %>%
+  kable(digits = 10)
+```
+
+Try using `shapiro_test` for multiple variables and save the results in a `tibble`.
+
+```{r}
+shapiro_tests <- cytomegalovirus %>%
+  shapiro_test(time.to.cmv, CD34.dose, CD3.dose)
+
+shapiro_tests %>%
+  kable(digits = 10)
+```
+
+Which type of transformation could you use to make this variable (skew left) look more 'Normal'? Visualize the distribution of transformed variable and and re-test for Normality.
+
+```{r}
+cytomegalovirus %>%
+  ggplot(aes(log(time.to.cmv))) +
+  geom_histogram(color ="black",
+                 fill = "steelblue",
+                 bins = 10) +
+  theme_bw()
+
+cytomegalovirus %>%
+  mutate(log_time.to.cmv = log(time.to.cmv)) %>%
+  shapiro_test(log_time.to.cmv) %>%
+  kable(digits = 10)
+
+```
+
+The Kolmogorov-Smirnov test is a Normality test. Apply this test using function `ks.test` to variables **CD34.dose** and **CD3.dose**. What is the null hypothesis of `ks.test` and can you reject it?
+
+```{r}
+ks.test(cytomegalovirus$CD34.dose,cytomegalovirus$CD3.dose, "pnorm") 
+```
+
+Calculate if the mean **time to cytomegalovirus** reactivation differs between the sexes. Use the `wilcox_test`.
+
+```{r}
+cytomegalovirus %>%
+  wilcox_test(time.to.cmv ~ sex) %>%
+  kable()
+```
+
+Use `geom_boxplot` and `fill` within `ggplot` to visualize your previous result.
+
+```{r}
+cytomegalovirus %>%
+  ggplot(aes(y = time.to.cmv, fill = as.factor(sex))) +
+  geom_boxplot() + 
+  theme_bw()
+```
+
+When comparing more than two non-Normal (independent) groups, you can use R function `pairwise_wilcox_test`. In the example below, we create data of students scores in 3 groups A, B and C. Which correction method should you apply? Interpret your results.
+
+```{r}
+#| code-fold: false
+student_scores <- data.frame(
+  Group = rep(c("A", "B", "C"), each = 5),
+  Score1 = c(23, 25, 21, 20, 22, 18, 19, 24, 27, 26, 30, 28, 32, 29, 27),
+  Score2 = c(19, 18, 17, 16, 13, 20, 15, 22, 25, 24, 26, 4, 30, 22, 13))
+
+student_scores %>%
+  kable()
+```
+
+```{r}
+student_scores %>%
+  pairwise_wilcox_test(Score1 ~ Group) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj") %>%
+  kable(digits = 5)
+
+```
+
+## Correlation
+
+Create a correlation matrix of all numerical measurements in **cytomegalovirus** data. Use `cor`, specify the `spearman` method and only include complete observations. Are there any variables that exhibit a higher degree of correlation with each other?
+
+```{r}
+cor_matrix <- cytomegalovirus %>% 
+  dplyr::select(time.to.transplant, TNC.dose, CD34.dose, CD3.dose, CD8.dose, TBI.dose, time.to.cmv, time.to.agvhd, time.to.cgvhd) %>%
+  cor(use = "complete.obs", method = "spearman")
+
+cor_matrix %>%
+  kable(digits = 2)
+```
+
+Plot the lower half of your correlation matrix with `ggcorplot`.
+
+```{r}
+ggcorrplot(cor_matrix, type = "lower", lab = TRUE)
+
+```
+
+Select two variables with a correlation above 0.5 and plot them in a scatter plot (Use `ggplot`). What do you observe?
+
+```{r}
+cytomegalovirus %>%
+  ggplot(aes(CD34.dose, TNC.dose)) +
+  geom_point(color = "steelblue") + theme_bw()
+
+```
+
+Remove the outlier, run the correlation test again and choose the according method. Can you explain what has changed?
+
+```{r}
+cytomegalovirus %>%
+  filter(CD34.dose <= 7.5) %>%
+  dplyr::select(CD34.dose, TNC.dose) %>%
+  cor(use = "complete.obs", method = "spearman") %>%
+  kable(digits = 2)
+
+```
+
+## Dependent Data
+
+Load the data **HorseBeginners** with Actual and Imaginary performances in equitation. Different riders reported how they performed in reality (**Actual**) and according to their own perception (**Imaginary**). In which format is this data (wide or long format)?
+
+```{r}
+data(HorseBeginners)
+
+head(HorseBeginners, 5) %>%
+  kable()
+
+```
+
+Plot a Bland-Altman plot (`paired.plotBA`) and interpret it, Can you identify any outliers? on which subject?
+
+```{r}
+paired.plotBA(HorseBeginners,"Actual","Imaginary")
+
+```
+
+<details>
+
+<summary>Answer</summary>
+
+Subject S1 is an outlier because it is the only one of all subjects for whom the imaginary performance is closer to actual performance.
+
+</details>
+
+Modify (pivot) the format of the dataset from wide into long format. For this you can use functions `pivot_longer` or `gather`and will need to create new variables (Performance and Type). Additionally, convert the categorical variables (Suject and Type) into factors (function `convert_as_factor`). How many times does every subject appear in the data now?
+
+```{r}
+HorseBeginnersL <- HorseBeginners %>%
+  gather(key = "Type", value = "Performance", Actual,Imaginary) %>%
+  convert_as_factor(Subject, Type)
+
+head(HorseBeginnersL, 5) %>%
+  kable()
+```
+
+
+<details>
+
+<summary>Answer</summary>
+
+Two times
+
+</details>
+
+Plot a profile plot (box plots of Performance by Type and lines connecting every subject). Can you identify the outlier at S1? Hint: use `geom_boxplot`, `geom_point`, and `geom_line`. 
+
+```{r}
+HorseBeginnersL %>%
+  ggplot(aes(Type, Performance)) +
+  geom_boxplot(width = 0.25, fill = "#FFC98D") +
+  geom_point(colour ="steelblue", size = 2) +
+  geom_line(aes(group = Subject), colour = "steelblue", linetype = "11") +
+  theme_bw()
+```
+
+Filter out the outlier (for the sake of the exercise).
+
+```{r}
+HorseBeginnersL_out <- HorseBeginnersL %>%
+  filter(Subject != "S1") 
+```
+
+
+Calculate the variability (SumOfSquares) between and within Subjects using the `aov` command. (Hint: Performance ~ Subject)
+
+```{r}
+anova_table <- aov(Performance ~ Subject, data = HorseBeginnersL_out)
+summary(anova_table)
+
+```
+
+In this case, the Subject variable is interpreted as the Between variable. How many groups/clusters/subjects of data do you have?
+
+<details>
+
+<summary>Answer</summary>
+
+S2 to S8, 7 groups/cluster of data, 7 subjects
+
+</details>
+
+
+How much is the total variability (SS-total)?
+
+```{r}
+(710+8416)
+```
+
+Calculate the ICC (for Subject level) and interpret it.
+
+```{r}
+ICC <- 710 / (710+8416)
+ICC
+```
+
+ICC is the amount of variance at the Subject level 7.8%.
+
+
+Advanced exercise: using package **rstatix** set up a [repeated measures Anova](https://www.datanovia.com/en/lessons/repeated) with the **HorseBeginners** and interpret it. Note that this calculation involves both Subject and Type.
+
+```{r}
+HorseBeginnersL %>%
+  anova_test(dv = Performance, wid = Subject, within = Type) %>%
+  get_anova_table()
+
+```
+
+Explore other functions presented in the tutorial like `identify_outliers` and `shapiro_test`. 
+
+Does the dataset HorseBeginnersL really have an outlier? 
+
+```{r}
+HorseBeginnersL %>%
+  group_by(Type) %>%
+  identify_outliers(Performance)
+```
+
+
+
