@@ -1,0 +1,300 @@
+---
+title: "Exercises 09.06, morning"
+author: "Eleftheria Michalopoulou"
+toc: true
+toc-depth: 4
+toc-location: left
+format: 
+  html:
+    self-contained: true
+    code-link: true
+    code-fold: show
+    code-overflow: scroll
+number-sections: false
+editor: visual
+theme:
+  light: flatly
+  dark: darkly
+---
+
+These are the exercises for the [Basic Statistics and Projects in R](https://zuw.me/kurse/dt.php?kid=4474) course of the [Public Health Sciences Course Program](https://www.medizin.unibe.ch/studies/study_programs/phs_course_program) at the [University of Bern](https://www.unibe.ch/).
+
+<!-- Some set ups -->
+
+```{r setup, include = FALSE, echo = FALSE}
+
+# Set language
+Sys.setenv(LANG = "en")
+
+# Clear memory
+rm(list = ls())
+
+# Set non-scientific notation and do not allow convertion of strings to factors
+# with the data import
+options(scipen = 999, stringsAsFactors = FALSE)
+
+```
+
+<!-- Libraries -->
+
+```{r libraries, include = FALSE, echo = FALSE, warning = FALSE, message = FALSE}
+
+# Load libraries riskCommunicator and TH.data ..................................
+# * Below we install the package if not already installed
+
+library_names <- c("TH.data", "epitools", "survival")
+
+lapply(library_names, function(x) {
+  if (!require(x, character.only = TRUE)) {
+    install.packages(x)
+    library(x, character.only = TRUE)
+  }
+})
+
+```
+
+# Inference using proportions
+
+## Data description and import
+
+In the following exercises, we will use data collected by the German Breast Cancer Study Group, available in package [TH.data](https://cran.r-project.org/web/packages/TH.data/TH.data.pdf). The German breast cancer study was a multicenter randomized clinical trial including patients with primary node positive breast cancer. The aim of the study was to investigate the effectiveness of three versus six cycles of chemotherapy and of additional hormonal therapy. Here, we will only use data of of 686 women that had complete information on the variables included in the dataset. For more information and relevant references type `?GBSG2`.
+
+```{r dataImport}
+
+breastCancer <- TH.data::GBSG2
+
+str(breastCancer)
+
+head(breastCancer)
+
+
+```
+
+## Exercise 1
+
+We would like to explore the occurrence of the adverse event cancer recurrence or death in women that received hormonal therapy and in women that didn't received hormonal therapy. We will use the variables `cens` (0 = no recurrence, 1 = recurrence) and `horTh` (no = hormonal therapy not-received, yes = hormonal therapy received).
+
+#### 1.1. Group proportions
+
+Calculate the proportion of women that experienced the event (recurrence of cancer or death), separately for women that didn't received hormonal therapy and for women that received hormonal therapy.
+
+```{r props}
+
+Tab_horTh_recur <-  table(breastCancer$horTh, breastCancer$cens)
+Tab_horTh_recur
+
+n_byhorTh <- rowSums(Tab_horTh_recur)
+
+p_recur_byhorTh <- Tab_horTh_recur[, "1"] / n_byhorTh
+as.matrix(p_recur_byhorTh)
+
+```
+
+The proportion of women that experienced recurrence seems to be higher in women that didn't receive hormonal therapy.
+
+#### 1.2. Confidence intervals (CI)
+
+Calculate the 95% CI for the proportions calculated in 1.1.
+
+```{r CIsprops}
+
+SE_recur_byhorTh <- sqrt(p_recur_byhorTh * (1 - p_recur_byhorTh) / n_byhorTh)
+
+
+lowerCI_p_recur_byhorTh <- p_recur_byhorTh - qnorm(0.975) * SE_recur_byhorTh
+
+upperCI_p_recur_byhorTh <- p_recur_byhorTh + qnorm(0.975) * SE_recur_byhorTh
+
+cbind(p_recur_byhorTh, lowerCI_p_recur_byhorTh, upperCI_p_recur_byhorTh)
+
+```
+
+
+
+#### 1.3. CI and test for difference in proportions
+
+Calculate the difference between the proportions calculated in 1.1. and its 95% CI. Test the null hypothesis that the risk of recurrence does not differ between women who received hormonal therapy and those that didn't. 
+
+```{r CIdiffprops}
+
+diffp_recur_byhorTh <- p_recur_byhorTh[1] - p_recur_byhorTh[2]
+
+SE_diffp_recur_byhorTh <- sqrt(sum(SE_recur_byhorTh ^ 2))
+
+lowerCI_diffp_recur_byhorTh <- diffp_recur_byhorTh - 
+  qnorm(0.975) * SE_diffp_recur_byhorTh
+
+upperCI_diffp_recur_byhorTh <- diffp_recur_byhorTh + 
+  qnorm(0.975) * SE_diffp_recur_byhorTh
+
+cbind(diffp_recur_byhorTh, lowerCI_diffp_recur_byhorTh,
+      upperCI_diffp_recur_byhorTh)
+
+
+prop.test(cbind(Tab_horTh_recur[, 2], Tab_horTh_recur[, 1]))
+# or
+chisq.test(cbind(Tab_horTh_recur[, 2], Tab_horTh_recur[, 1]))
+
+```
+
+The proportions of women that experienced recurrence was lower by 8.3% (absolute difference) among woman who received hormonal therapy compared to those who didn't. There is weak evidence that the risk differs between groups (p=0.041).
+
+Note that we are abusing the term 'risk' somewhat here as the measured outcome is not the occurrence of an event over a fixed period. Rather the individual follow-up time varies greatly.  
+
+## Exercise 2
+
+We continue to explore the occurrence of recurrence in women that received hormonal therapy and in women that didn't received hormonal therapy.
+
+
+### 2.1. Risk ratios and odds ratios
+
+Calculate the risk ratio and the odds ratio for recurrence in women who received hormonal therapy compared to women who didn't. Compute 95% confidence intervals for these. Perform the calculations manually and using R-functions `riskratio` and `oddsratio` from the package [epitools](https://cran.r-project.org/web/packages/epitools/epitools.pdf). Compare the results produced manually with the ones produced using `epitools`. 
+
+Note that risk and odds ratios are generally calculated comparing exposed (numerator) to unexposed (denominator).
+
+```{r riskRatios}
+
+## Manually ....................................................................
+
+# first calculate the values
+# RR
+recurRelativeRisk <-  p_recur_byhorTh["yes"] / p_recur_byhorTh["no"] 
+recurRelativeRisk 
+# OR
+recurOddsRatio <-  (Tab_horTh_recur["yes", "1"]/ Tab_horTh_recur["yes", "0"]) / 
+  (Tab_horTh_recur["no", "1"]/Tab_horTh_recur["no", "0"])
+recurOddsRatio 
+
+# Confidence intervals
+# RR
+z<-qnorm(0.975)
+se_lnRR <-  sqrt(1/Tab_horTh_recur["yes", "1"] - 1/n_byhorTh["yes"] + 
+                 1/Tab_horTh_recur["no", "1"] - 1/n_byhorTh["no"])
+lowerCI_recurRelativeRisk <- exp(log(recurRelativeRisk)-z*se_lnRR)
+upperCI_recurRelativeRisk <- exp(log(recurRelativeRisk)+z*se_lnRR)
+cbind(recurRelativeRisk,lowerCI_recurRelativeRisk, upperCI_recurRelativeRisk)
+# OR
+se_lnOR <-  sqrt(1/Tab_horTh_recur["yes", "1"] + 1/Tab_horTh_recur["yes", "0"] + 
+                 1/Tab_horTh_recur["no", "1"] + 1/Tab_horTh_recur["no", "0"])
+lowerCI_recurOddsRatio <- exp(log(recurOddsRatio)-z*se_lnOR)
+upperCI_recurOddsRatio <- exp(log(recurOddsRatio)+z*se_lnOR)
+cbind(recurOddsRatio,lowerCI_recurOddsRatio, upperCI_recurOddsRatio)
+
+
+
+
+
+## R-functions .................................................................
+
+riskratio(Tab_horTh_recur, correction = TRUE)
+          
+riskratio(Tab_horTh_recur, correction = TRUE, rev = "rows") # what does this RR mean?
+# calculated manually
+
+oddsratio(Tab_horTh_recur)
+
+```
+
+The risk of experiencing recurrence in women that received hormonal therapy compared to women that didn't receive hormonal therapy is 0.82 (95%-CI: 0.68 0.99), and the corresponding odds ratio is 0.71 (95%-CI: 0.51, 0.97) . You can play around with the argument `rev` to perform the comparison of your preference, e.g. if you wanted to compare untreated to treated.
+
+## Exercise 3
+
+### 3.1. Event rates
+
+Calculate the rates for recurrence or death and their 95% CIs in women that didn't receive hormonal therapy and in women that received hormonal therapy. Perform the calculation manually and using the cipoisson function of the survival package.
+
+```{r Event Rates}
+
+## Manually ....................................................................
+
+breastCancer$time_years <- breastCancer$time / 365.25
+
+recur_byhorTh <- aggregate(cens ~ horTh, data = breastCancer, FUN = sum)
+
+pYr_byhorTh <- aggregate(time_years ~ horTh, data = breastCancer, FUN = sum)
+
+recur_pYr_byhorTh <- merge(recur_byhorTh, pYr_byhorTh, by = "horTh")
+
+recur_pYr_byhorTh$rate <- recur_pYr_byhorTh$cens / recur_pYr_byhorTh$time_years
+
+SE_logrecurRate <- 1 / sqrt(recur_pYr_byhorTh$cens)
+
+recur_pYr_byhorTh$rate_lowerCI <- exp(
+  log(recur_pYr_byhorTh$rate) - 1.96 * SE_logrecurRate)
+
+recur_pYr_byhorTh$rate_upperCI <- exp(
+  log(recur_pYr_byhorTh$rate) + 1.96 * SE_logrecurRate)
+
+recur_pYr_byhorTh
+
+
+## R-functions .................................................................
+
+cipoisson(k = recur_pYr_byhorTh$cens, time = recur_pYr_byhorTh$time_years)
+
+```
+
+We estimate the rate of recurrence or death among woman not receiving hormonal therapy to be 16.1 per 100 person years (or 16 recurrences among 100 woman per year). We are 95% confident that this number will be between 14.0 and 18.4. The corresponding rate among woman receiving hormonal therapy is 11.3 per 100 person years (95% CI:  9.1, 13.8).
+
+### 3.2. Rate ratio
+
+Calculate the rate ratio for recurrence or death and its 95% CI in women that received hormonal therapy compared women that didn't receive hormonal therapy.
+
+```{r RateRatio}
+
+# Manually
+recurRateRatio <- recur_pYr_byhorTh$rate[recur_pYr_byhorTh$horTh == "yes"] /
+  recur_pYr_byhorTh$rate[recur_pYr_byhorTh$horTh == "no"]
+
+SE_logrecurRateRatio <- sqrt(
+  1 / recur_pYr_byhorTh$cens[recur_pYr_byhorTh$horTh == "yes"] +
+    1 / recur_pYr_byhorTh$cens[recur_pYr_byhorTh$horTh == "no"])
+
+lowerCI_recurRateRatio <- exp(log(recurRateRatio) - 1.96 * SE_logrecurRateRatio)
+
+upperCI_recurRateRatio <- exp(log(recurRateRatio) + 1.96 * SE_logrecurRateRatio)
+
+cbind(recurRateRatio, lowerCI_recurRateRatio, upperCI_recurRateRatio)
+
+## R-functino
+rateratio(x = recur_pYr_byhorTh$cens, y = recur_pYr_byhorTh$time_years)
+
+```
+
+The data suggest that hormone therapy is associated with a relative decrease of the rate of the adverse outcome by 30% (95%-CI: 11%,45%).
+
+## Exercise 4
+
+### 3.1. Recurrence-free survival curves
+
+Use the Kaplan-Meier estimator to calculate the recurrence-free survival of women whoe received and of women who didn't receive hormonal therapy. Use the R-function `survfit()` from package [survival](https://cran.r-project.org/web/packages/survival/survival.pdf). Inspect the `summary()` of the `survfit()` output and plot the recurrence-free survival curves according to the exposure to hormonal therapy.
+
+```{r KMcurves}
+
+KM_recur_byhorTh <- survfit(Surv(time_years, cens) ~ horTh,
+                            data = breastCancer)
+
+summary(KM_recur_byhorTh)
+
+
+plot(KM_recur_byhorTh, col = c("red", "blue"), xlab = "time (years)", 
+     ylab = "recurrence-free survival")
+legend("topright", lty = c(1, 1), col = c("red", "blue"),
+       legend = c("no", "yes"), title = "horTh", cex = 0.8)
+      
+
+```
+
+The recurrence-free survival curve of women that didn't received hormonal therapy is always below the recurrence-free survival curve of women that received hormonal therapy (except maybe during the first months of follow-up). It seems that women that didn't received hormonal therapy have higher chances of experiencing recurrence per year compared to women that received hormonal therapy.
+
+### 3.2. Log-rank test
+
+Perform a test for difference in the recurrence-free survival curves between the treatment groups. Is there evidence for a difference between the recurrence-free survival curves?
+
+```{r logRankt}
+
+survdiff(Surv(time, cens) ~ horTh, data = breastCancer, rho = 0)
+
+```
+
+There is evidence for a difference in the recurrence-free survival curves of women that received and of women that didn't receive hormonal therapy (p= 0.003).
